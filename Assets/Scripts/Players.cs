@@ -5,7 +5,6 @@ using UnityEngine;
 public class Players : MonoBehaviour
 {
     public Sprite[] playerSprites;
-    public int spriteIndex = 0;
     Rigidbody rigid;
     
 
@@ -13,7 +12,7 @@ public class Players : MonoBehaviour
     void Start()
     {
         rigid = this.gameObject.GetComponent<Rigidbody>();
-        GetComponent<SpriteRenderer>().sprite = playerSprites[spriteIndex];
+        GetComponent<SpriteRenderer>().sprite = playerSprites[Constants.Constants.playerIndex-1];
     }
 
     // Update is called once per frame
