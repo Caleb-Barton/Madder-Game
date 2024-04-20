@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject nameObject;
     private PlayerJoin[] playerJoins;
     public int m_NumRoundsToWin = 3;
+    private static bool started = false; 
+    private static bool winner = false;
 
     // Madder functions that you may call
     // These functions should be conditionally called based on if this is inside a WebGL build, not the editor
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerJoins = new PlayerJoin[0];
+        //StartCoroutine(GameLoop());
     }
 
     void Update()
@@ -99,7 +102,106 @@ public class GameManager : MonoBehaviour
         }
 
     }
+/*
+    private IEnumerator GameLoop()
+    {
+        if(started == true)
+        {
+            yield return StartCoroutine(WaitingForPlayersLoop());
 
+            //turn off any start text here
+
+            spawnAllPlayers();
+        }
+
+        yield return StartCoroutine(RoundStarting());
+        yield return StartCoroutine(RoundPlaying());
+        yield return StartCoroutine(RoundEnding());
+
+        if(started == false)
+        {
+            if(winner)
+            {
+                StartCoroutine(EndOfGameLoop());
+            }
+            else
+            {
+                StartCoroutine(GameLoop());
+            }
+        }
+    }
+
+    private IEnumerator RoundStarting()
+    {
+        resetGame();
+    }
+
+    private IEnumerator RoundPlaying()
+    {
+        while(!winner)
+        {
+            yield return null;
+        }
+    }
+
+    private IEnumerator RoundEnding()
+    {
+        //put any round end messages here
+        yield return null;
+    }
+
+    private IEnumerator EndOfGameLoop()
+    {
+        //put any game end messages here
+        //while
+    }
+
+    private IEnumerator WaitingForPlayersLoop()
+    {
+        //start when four players are in
+        while (playerJoins.Length() == 4)
+        {
+            yield return null;
+        }
+    }
+
+    private void resetGame()
+    {
+        Destroy(player_1);
+        Destroy(player_2);
+        Destroy(player_3);
+        Destroy(player_4);
+
+        destroyBoard();
+
+        buildBoard();
+
+        Instantiate(player_1, player_1.spawnPoint, transform.rotation);
+        Instantiate(player_2, player_2.spawnPoint, transform.rotation);
+        Instantiate(player_3, player_3.spawnPoint, transform.rotation);
+        Instantiate(player_4, player_4.spawnPoint, transform.rotation);
+
+
+    }
+
+    private void spawnAllPlayers()
+    {
+        Instantiate(player_1, player_1.spawnPoint, transform.rotation);
+        Instantiate(player_2, player_2.spawnPoint, transform.rotation);
+        Instantiate(player_3, player_3.spawnPoint, transform.rotation);
+        Instantiate(player_4, player_4.spawnPoint, transform.rotation);
+    }
+
+    private void destroyBoard()
+    {
+        
+    }
+
+    private void buildBoard()
+    {
+        //look up resetting a scene in Unity
+    }
+*/
     // TODO: The following function may be modified or deleted
     void HandleExit()
     {
