@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
     public Canvas canvas;
     public GameObject nameObject;
     private PlayerJoin[] playerJoins;
+    public int m_NumRoundsToWin = 3;
+    public GameObject[] m_SpawnPoints;
 
     // Madder functions that you may call
     // These functions should be conditionally called based on if this is inside a WebGL build, not the editor
