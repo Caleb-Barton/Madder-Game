@@ -16,13 +16,13 @@ public class StepMovement2 : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.UpArrow))
-            transform.Translate(0, 5, 0);
+            transform.Translate(0, 10, 0);
         else if (Input.GetKeyDown(KeyCode.DownArrow))
-            transform.Translate(0, -5, 0);
+            transform.Translate(0, -10, 0);
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
-            transform.Translate(-5, 0, 0);
+            transform.Translate(-10, 0, 0);
         else if (Input.GetKeyDown(KeyCode.RightArrow))
-            transform.Translate(5, 0, 0);
+            transform.Translate(10, 0, 0);
     }
 }
 
